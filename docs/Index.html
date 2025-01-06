@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아카리 ♡ 하루마사 쨩과 함께 이상한 상자에 갇혀버렸다!</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="game-title">아카리 ♡ 하루마사 쨩과 함께 이상한 상자에 갇혀버렸다!</div>
+        <div class="image-area">
+            <img id="gameImage" src="images/default.png" alt="상자 이미지">
+        </div>
+        <div class="dialogue-box">
+            <p id="currentDialogue">로딩 중...</p>
+        </div>
+        <div class="choices"></div>
+        <div class="menu">
+            <button onclick="restartGame()">다시 시작</button>
+            <button onclick="showSaveUI()">게임 저장</button>
+            <button onclick="showLoadUI()">불러오기</button>
+            <button onclick="toggleHistory()">대화 내역 보기</button>
+            <button onclick="openModal('settingsModal')">설정</button>
+        </div>
+        <div class="history" id="history" style="display: none;">
+            <h4>대화 내역</h4>
+            <div id="historyContent"></div>
+        </div>
+    </div>
+
+    <!-- 저장 모달 -->
+    <div class="modal" id="saveModal">
+        <div class="modal-content">
+            <h3>게임 저장</h3>
+            <div id="saveSlots"></div>
+            <button onclick="closeModal('saveModal')">닫기</button>
+        </div>
+    </div>
+
+    <!-- 불러오기 모달 -->
+    <div class="modal" id="loadModal">
+        <div class="modal-content">
+            <h3>게임 불러오기</h3>
+            <div id="loadSlots"></div>
+            <button onclick="closeModal('loadModal')">닫기</button>
+        </div>
+    </div>
+
+    <!-- 설정 모달 -->
+    <div class="modal" id="settingsModal">
+        <div class="modal-content">
+            <h3>설정</h3>
+            <button onclick="toggleTheme()">테마 전환</button>
+            <button onclick="toggleBGM()">BGM 켜기/끄기</button>
+            <button onclick="closeModal('settingsModal')">닫기</button>
+        </div>
+    </div>
+
+    <!-- BGM -->
+    <audio id="bgm" loop>
+        <source src="bgm.mp3" type="audio/mpeg">
+        브라우저가 오디오를 지원하지 않습니다.
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
